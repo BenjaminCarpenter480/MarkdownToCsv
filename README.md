@@ -27,4 +27,27 @@ Worklog: Made up of 4 parts separated by the ';' character.
 The Project Type is 'software'
 
 
-An example worklog file is "/home/benjamin/Desktop/Obsidian/Personal/Work/Daily Notes/2024-04-11/1100 Looking at running TDCS std commands test without the error causing parts.md"
+An example worklog follows
+
+```
+2024-11-01/error state testing.md
+---
+tags: 
+Issue: issue-42
+Start time: 10:15
+End time: 10:45
+Time spent: 
+Date: 2024-11-01 10:15
+---
+Working on a different test, it occasionally enters an error state and needs to be tested to see if it can recover on its own. This test will be written in tcl.
+
+The output would be:
+```
+Project Name,Project Key,Issue Key,Summary,Worklog,Project Type
+error state testing,error state testing,issue-42,error state testing;Working on a different test, it occasionally enters an error state and needs to be tested to see if it can recover on its own.;2024-11-01 10:15;username;1800,software
+```
+
+The program will be run with the following command line arguments:
+    -The path to the directory containing the worklogs
+    -The path to the output csv file
+    -The author to be used in the Worklog field

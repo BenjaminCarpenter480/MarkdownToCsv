@@ -3,10 +3,10 @@ import os
 import csv
 import datetime
 import re
+import argparse
 
-author = 'bpc'
 
-def convert_notes_to_csv(notes_dir, csv_file):
+def convert_notes_to_csv(notes_dir, csv_file, author):
     with open(csv_file, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["Project Name", "Project Key", "Issue Key", "Summary", "Worklog", "Project Type"])
@@ -30,7 +30,7 @@ def convert_notes_to_csv(notes_dir, csv_file):
                             summary = name[5:]
                             worklog = worklog_description.strip()
                             
-                            worklog = (";".join([worklog, date.strftime("%Y-%m-%d"), author,str(time)])).encode('unicode-escape')
+                            worklog = (";".join([worklog, date.strftime("%Y-%m-%d"), author ,str(time)])).encode('unicode-escape')
                             project_type = 'software'
 
                             writer.writerow([project_name, project_key, issue, summary, worklog, project_type])
@@ -38,5 +38,13 @@ def convert_notes_to_csv(notes_dir, csv_file):
                         print(f" -- Got error parsing file {name}. error: {e}")
 
 
+
 if __name__ == '__main__':
-    convert_notes_to_csv("/home/benjamin/Desktop/Obsidian/Personal/Work/Daily Notes/2024/April/", "output.csv")
+    parser = argparse.ArgumentParser(description='Convert worklog notes to CSV.')
+    parser.add_argument('notes_dir',  type=str, help='Path to the directory containing worklogs')
+    parser.add_argument('output_file',  type=str, help='Path to the output CSV file')
+    parser.add_argument('author',  type=str, help='Username to be used in the Worklog field')
+
+    args = parser.parse_args()
+
+    convert_notes_to_csv(args.notes_dir, args.output_file, args.author)
