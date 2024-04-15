@@ -1,7 +1,8 @@
-Program for converting a folder of markdown files into a collection of csv line entries that can
+# MarkdownToCSV
+Program for converting a folder of markdown worklogs into a collection of csv line entries that can
  then be uploaded to tempo
 
-Notes are formatted following the rules: 
+## Notes are formatted following the rules: 
     -All time-sheet entries for a day are in a single directory where the directory name is the date of those entries with YYYY-MM-DD format
     -Each file in a folder is a different worklog entry
     -The first 4 characters of the file name are the start time of the entry formatted as HHMM
@@ -15,6 +16,7 @@ Notes are formatted following the rules:
         -Time Spent: The amount of time worked (End time - start time) with format "XhYm"
         -The rest of the file is the worklog description
 
+## Output
 The data will be read into python, do some formatting and then written to a csv file. 
 The csv file will have headers: Project Name,Project Key,Issue Key,Summary,Worklog,Project Type
 
@@ -27,7 +29,7 @@ Worklog: Made up of 4 parts separated by the ';' character.
 The Project Type is 'software'
 
 
-An example worklog follows
+## Example worklog and conversion follows
 
 ```
 2024-11-01/error state testing.md
