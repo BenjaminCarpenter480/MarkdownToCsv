@@ -18,7 +18,7 @@ Program for converting a folder of markdown worklogs into a collection of csv li
 
 ## Output
 The data will be read into python, do some formatting and then written to a csv file. 
-The csv file will have headers: Project Name,Project Key,Issue Key,Summary,Worklog,Project Type
+The csv file will have headers: `Project Name,Project Key,Issue Key,Summary,Worklog,Project Type`
 
 Project Name: the Issue entry of the properties before the "-"
 Project Key:the Issue entry of the properties before the "-"
