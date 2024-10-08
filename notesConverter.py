@@ -4,7 +4,7 @@ import csv
 import datetime
 import re
 import argparse
-
+import typer
 
 def convert_notes_to_csv(notes_dir, csv_file, author):
     with open(csv_file, 'w', newline='') as file:
@@ -39,12 +39,5 @@ def convert_notes_to_csv(notes_dir, csv_file, author):
 
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Convert worklog notes to CSV.')
-    parser.add_argument('notes_dir',  type=str, help='Path to the directory containing worklogs')
-    parser.add_argument('output_file',  type=str, help='Path to the output CSV file')
-    parser.add_argument('author',  type=str, help='Username to be used in the Worklog field')
-
-    args = parser.parse_args()
-
-    convert_notes_to_csv(args.notes_dir, args.output_file, args.author)
+def main(notes_dir: str, output_file: str, author: str):
+    convert_notes_to_csv(notes_dir, output_file, author)

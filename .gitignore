@@ -1,2 +1,3 @@
 /MarkdownToCsv.code-workspace
 /output.csv
+.env/lib/**
